@@ -3,11 +3,11 @@ const socketidToEmailMap = new Map();
 
 function handleRoomJoin(io, socket) {
   socket.on("room:join", (data) => {
-    const { email, room } = data;
+    const { email, roomId } = data;
     emailToSocketIdMap.set(email, socket.id);
     socketidToEmailMap.set(socket.id, email);
-    io.to(room).emit("user:joined", { email, id: socket.id });
-    socket.join(room);
+    io.to(roomId).emit("user:joined", { email, id: socket.id });
+    socket.join(roomId);
     io.to(socket.id).emit("room:join", data);
   });
 }

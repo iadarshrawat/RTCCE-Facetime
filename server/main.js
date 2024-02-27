@@ -1,8 +1,7 @@
 // server.js
 const { Server } = require("socket.io");
 const { handleRoomJoin, handleUserCall, handleCallAccepted, 
-  handlePeerNegoNeeded, handlePeerNegoDone , socketidToEmailMap, 
-  emailToSocketIdMap} = require("./Helper/RTC_connection");
+  handlePeerNegoNeeded, handlePeerNegoDone} = require("./Helper/RTC_connection");
 const {handleInput} = require("./Helper/CodeHandler");
 const io = new Server(8000, {
   cors: true,

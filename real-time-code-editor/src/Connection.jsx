@@ -13,6 +13,7 @@ const Connection = () => {
   const handleUserJoined = useCallback(({ email, id }) => {
     setRemoteSocketId(id);
     setShouldCallUser(true);
+    console.log(email, 'joined room');
   }, [ setRemoteSocketId]);
 
   const handleCallUser = useCallback(async () => {
@@ -106,6 +107,7 @@ const Connection = () => {
 
   useEffect(()=>{
     if(remoteSocketId!==null && shouldCallUser){
+      console.log(remoteSocketId);
       handleCallUser();
       setShouldCallUser(false);
     }
