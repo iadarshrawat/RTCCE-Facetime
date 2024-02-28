@@ -21,7 +21,7 @@ export const EditorComp = () => {
   const options = {
     selectOnLineNumbers: true,
   };
-  const handleChange = (value, event) => {
+  const handleChange = async (value, event) => {
     const data = {
       roomId: params.roomId,
       remoteId: remoteSocketId,

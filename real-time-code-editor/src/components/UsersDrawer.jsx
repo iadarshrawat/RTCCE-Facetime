@@ -5,17 +5,16 @@ import {ClipboardIcon, XMarkIcon} from '@heroicons/react/24/outline';
 import { toast, Toaster } from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
 
-
 export const UsersDrawer = ({setOpenSideDrawer}) => {
    const{joinedUsers}=useContext(PostContext)
 
 const params=useParams()
-const {id:uid}=params
+const roomId=params.roomId;
 
 
 
 const handleCopyToClipboard=async()=>{
-   navigator.clipboard.writeText(uid).then(function() {
+   navigator.clipboard.writeText(roomId).then(function() {
       toast.success('Copied to clipboard')
     }, function(err) {
       toast.error(err)
@@ -42,7 +41,7 @@ const handleCopyToClipboard=async()=>{
       <div className="absolute  bottom-10">
          <p className='font-bold text-2xl'>Invite users by sharing this 👇 </p>
       <div onClick={handleCopyToClipboard} className=" bg-[#F5F4F6] flex items-center gap-x-4 p-3 py-5 cursor-pointer">
-            <p className='text-xl     whitespace-nowrap'>ff1efde0-2eba-4320-bdf2-5b0cd03c1114</p>
+            <p className='text-xl     whitespace-nowrap'>{roomId}</p>
             <ClipboardIcon  className='w-8 h-8 '/>
          </div>
       </div>

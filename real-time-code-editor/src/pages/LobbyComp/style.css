@@ -35,6 +35,14 @@
   }
   .container2 h2{
     text-align: center;
+    font-weight: bold;
+    color: #007bff;
+    font-size: 25px;
+  }
+  .container2 label{
+    font-weight: bold;
+    font-size: 14px;
+    color: rgb(62, 61, 61);
   }
   /* Style for the video player */
   .react-player {
@@ -67,7 +75,7 @@
     border-radius: 4px;
   }
   
-  button {
+  button[type='submit'] {
     padding: 10px;
     background-color: #007bff;
     color: white;
@@ -76,7 +84,7 @@
     cursor: pointer;
   }
   
-  button:hover {
+  button[type='submit']:hover {
     background-color: #0056b3;
   }
   
@@ -86,8 +94,8 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 80%;
-      width: 70%;
+      height: 93%;
+      width: 65%;
     }
     .container1{
       margin-right: 0;
