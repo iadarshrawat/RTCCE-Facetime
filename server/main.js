@@ -3,8 +3,13 @@ const { Server } = require("socket.io");
 const { handleRoomJoin, handleUserCall, handleCallAccepted, 
   handlePeerNegoNeeded, handlePeerNegoDone} = require("./Helper/RTC_connection");
 const {handleInput} = require("./Helper/CodeHandler");
-const io = new Server(8000, {
-  cors: true,
+
+const port = process.env.PORT || 8000;
+const corsOrigin ="https://live-editor-call.vercel.app";
+const io = new Server(port, {
+  cors: {
+    origin: corsOrigin
+  }
 });
 
 io.on("connection", (socket) => {
