@@ -5,7 +5,7 @@ const { handleRoomJoin, handleUserCall, handleCallAccepted,
 const {handleInput} = require("./Helper/CodeHandler");
 
 const port = process.env.PORT || 8000;
-const corsOrigin ="https://live-editor-call.vercel.app";
+const corsOrigin ="http://localhost:3000";
 const io = new Server(port, {
   cors: {
     origin: corsOrigin
@@ -20,6 +20,5 @@ io.on("connection", (socket) => {
   handlePeerNegoNeeded(io, socket);
   handlePeerNegoDone(io, socket);
 
-  
   handleInput(io, socket);
 });
